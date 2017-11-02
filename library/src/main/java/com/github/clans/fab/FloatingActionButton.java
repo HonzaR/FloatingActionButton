@@ -387,7 +387,7 @@ public class FloatingActionButton extends ImageButton {
         setBackgroundCompat(layerDrawable);
     }
 
-    protected Drawable getIconDrawable() {
+    public Drawable getIconDrawable() {
         if (mIcon != null) {
             return mIcon;
         } else {
