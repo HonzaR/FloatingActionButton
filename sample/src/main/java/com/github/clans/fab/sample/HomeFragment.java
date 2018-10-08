@@ -1,7 +1,5 @@
 package com.github.clans.fab.sample;
 
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -62,8 +60,6 @@ public class HomeFragment extends Fragment {
                 mFab.setHideAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.hide_to_bottom));
             }
         }, 300);
-
-        Drawable d = mFab.getIconDrawable();
 
         mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
