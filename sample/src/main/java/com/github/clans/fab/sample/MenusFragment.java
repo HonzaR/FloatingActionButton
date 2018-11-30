@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -98,6 +99,17 @@ public class MenusFragment extends Fragment {
         fabEdit = (FloatingActionButton) view.findViewById(R.id.fab_edit);
         fabEdit.setShowAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.scale_up));
         fabEdit.setHideAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.scale_down));
+
+        Log.d("TEST", menuDown.getOnMenuButtonClickListener().toString());
+
+        final View.OnClickListener listener = menuDown.getOnMenuButtonClickListener();
+        menuDown.setOnMenuButtonClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("TEST2", menuDown.getOnMenuButtonClickListener().toString());
+                menuDown.setOnMenuButtonClickListener(listener);
+            }
+        });
     }
 
     @Override
