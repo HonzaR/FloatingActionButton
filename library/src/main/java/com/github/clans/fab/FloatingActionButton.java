@@ -400,14 +400,6 @@ public class FloatingActionButton extends AppCompatImageButton {
         setBackgroundCompat(layerDrawable);
     }
 
-    protected Drawable getIconDrawable() {
-        if (mIcon != null) {
-            return mIcon;
-        } else {
-            return new ColorDrawable(Color.TRANSPARENT);
-        }
-    }
-
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private Drawable createFillDrawable() {
         StateListDrawable drawable = new StateListDrawable();
@@ -820,6 +812,14 @@ public class FloatingActionButton extends AppCompatImageButton {
         if (mIcon != drawable) {
             mIcon = drawable;
             updateBackground();
+        }
+    }
+
+    public Drawable getIconDrawable() {
+        if (mIcon != null) {
+            return mIcon;
+        } else {
+            return new ColorDrawable(Color.TRANSPARENT);
         }
     }
 
