@@ -27,14 +27,15 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
 import android.support.annotation.NonNull;
+import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.AppCompatImageButton;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.view.ViewOutlineProvider;
+import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
@@ -61,6 +62,7 @@ public class FloatingActionButton extends AppCompatImageButton {
     private int mColorDisabled;
     private int mColorRipple;
     private Drawable mIcon;
+    private int mIconTint;
     private int mIconSize = Util.dpToPx(getContext(), 24f);
     private Animation mShowAnimation;
     private Animation mHideAnimation;
@@ -131,7 +133,13 @@ public class FloatingActionButton extends AppCompatImageButton {
         mProgressBackgroundColor = attr.getColor(R.styleable.FloatingActionButton_fab_progress_backgroundColor, 0x4D000000);
         mProgressMax = attr.getInt(R.styleable.FloatingActionButton_fab_progress_max, mProgressMax);
         mShowProgressBackground = attr.getBoolean(R.styleable.FloatingActionButton_fab_progress_showBackground, true);
-
+        mIconTint = attr.getColor(R.styleable.FloatingActionButton_fab_icon_tint, Integer.MIN_VALUE);
+        int iconRes = attr.getResourceId(R.styleable.FloatingActionButton_fab_icon, 0);
+        if (iconRes != 0) {
+            mIcon = AppCompatResources.getDrawable(context, iconRes);
+        } else {
+            mIcon = context.getResources().getDrawable(R.drawable.fab_add);
+        }
         if (attr.hasValue(R.styleable.FloatingActionButton_fab_progress)) {
             mProgress = attr.getInt(R.styleable.FloatingActionButton_fab_progress, 0);
             mShouldSetProgress = true;
@@ -815,12 +823,21 @@ public class FloatingActionButton extends AppCompatImageButton {
         }
     }
 
-    public Drawable getIconDrawable() {
+    public Drawable getIconDrawable()
+    {
+        Drawable icon;
+
         if (mIcon != null) {
-            return mIcon;
+            icon = mIcon;
         } else {
-            return new ColorDrawable(Color.TRANSPARENT);
+            icon = new ColorDrawable(Color.TRANSPARENT);
         }
+
+        if (mIconTint > Integer.MIN_VALUE) {
+            icon.setTint(mIconTint);
+        }
+
+        return icon;
     }
 
     @Override

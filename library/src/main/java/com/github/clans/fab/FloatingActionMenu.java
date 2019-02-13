@@ -76,6 +76,7 @@ public class FloatingActionMenu extends ViewGroup {
     private int mMenuColorPressed;
     private int mMenuColorRipple;
     private Drawable mIcon;
+    private int mIconTint;
     private int mAnimationDelayPerItem;
     private Interpolator mOpenInterpolator;
     private Interpolator mCloseInterpolator;
@@ -162,6 +163,7 @@ public class FloatingActionMenu extends ViewGroup {
         } else {
             mIcon = getResources().getDrawable(R.drawable.fab_add);
         }
+        mIconTint = attr.getColor(R.styleable.FloatingActionMenu_menu_icon_tint, Integer.MIN_VALUE);
         mLabelsSingleLine = attr.getBoolean(R.styleable.FloatingActionMenu_menu_labels_singleLine, false);
         mLabelsEllipsize = attr.getInt(R.styleable.FloatingActionMenu_menu_labels_ellipsize, 0);
         mLabelsMaxLines = attr.getInt(R.styleable.FloatingActionMenu_menu_labels_maxLines, -1);
@@ -264,6 +266,10 @@ public class FloatingActionMenu extends ViewGroup {
 
         mImageToggle = new ImageView(getContext());
         mImageToggle.setImageDrawable(mIcon);
+
+        if (mIconTint > Integer.MIN_VALUE) {
+            mImageToggle.setColorFilter(mIconTint);
+        }
 
         addView(mMenuButton, super.generateDefaultLayoutParams());
         addView(mImageToggle);

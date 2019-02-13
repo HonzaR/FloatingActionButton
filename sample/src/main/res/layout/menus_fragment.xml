@@ -90,6 +90,7 @@
         app:menu_colorPressed="#2E7D32"
         app:menu_colorRipple="#1B5E20"
         app:menu_icon="@drawable/ic_walk"
+        app:menu_icon_tint="#673AB7"
         app:menu_labels_ellipsize="end"
         app:menu_labels_maxLines="2">
 
@@ -160,14 +161,14 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="75dp"
-        android:visibility="invisible"
         app:fab_colorNormal="#F50057"
         app:fab_colorPressed="#E8004A"
         app:fab_colorRipple="#C20024"
         app:fab_elevationCompat="6dp"
         app:fab_shadowColor="#000"
         app:fab_size="mini"
-        app:srcCompat="@drawable/ic_edit"
+        app:fab_icon="@drawable/ic_edit"
+        app:fab_icon_tint="#673AB7"
         tools:visibility="visible" />
 
     <com.github.clans.fab.FloatingActionMenu
