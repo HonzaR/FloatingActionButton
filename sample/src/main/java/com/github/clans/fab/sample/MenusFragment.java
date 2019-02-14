@@ -83,7 +83,7 @@ public class MenusFragment extends Fragment {
         FloatingActionButton programFab2 = new FloatingActionButton(context);
         programFab2.setLabelText("Programmatically added button");
         programFab2.setImageResource(R.drawable.ic_edit);
-        menuYellow.addMenuButton(programFab2);
+        //menuYellow.addMenuButton(programFab2);
 
         fab1.setEnabled(false);
         menuRed.setClosedOnTouchOutside(true);
@@ -91,7 +91,7 @@ public class MenusFragment extends Fragment {
 
         menuDown.hideMenuButton(false);
         menuRed.hideMenuButton(false);
-        menuYellow.hideMenuButton(false);
+        //menuYellow.hideMenuButton(false);
         menuGreen.hideMenuButton(false);
         menuBlue.hideMenuButton(false);
         menuLabelsRight.hideMenuButton(false);

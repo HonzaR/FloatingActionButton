@@ -20,7 +20,6 @@
         <attr name="fab_label" format="string" />
         <attr name="fab_elevationCompat" format="dimension" />
         <attr name="fab_icon_tint" format="color" />
-        <attr name="fab_icon" format="reference" />
         <attr name="fab_progress_color" format="color" />
         <attr name="fab_progress_backgroundColor" format="color" />
         <attr name="fab_progress_indeterminate" format="boolean" />

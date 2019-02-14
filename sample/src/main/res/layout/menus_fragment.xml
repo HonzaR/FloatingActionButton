@@ -63,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:fab_label="Menu item 2"
-            app:srcCompat="@drawable/ic_edit" />
+            android:src="@drawable/ic_edit" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/fab32"
@@ -71,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:fab_label="@string/lorem_ipsum"
-            app:srcCompat="@drawable/ic_edit" />
+            android:src="@drawable/ic_edit" />
 
     </com.github.clans.fab.FloatingActionMenu>
 
@@ -161,13 +161,13 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="75dp"
+        android:src="@drawable/ic_edit"
         app:fab_colorNormal="#F50057"
         app:fab_colorPressed="#E8004A"
         app:fab_colorRipple="#C20024"
         app:fab_elevationCompat="6dp"
         app:fab_shadowColor="#000"
         app:fab_size="mini"
-        app:fab_icon="@drawable/ic_edit"
         app:fab_icon_tint="#673AB7"
         tools:visibility="visible" />
 

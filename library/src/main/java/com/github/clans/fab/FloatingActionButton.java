@@ -62,7 +62,7 @@ public class FloatingActionButton extends AppCompatImageButton {
     private int mColorDisabled;
     private int mColorRipple;
     private Drawable mIcon;
-    private int mIconTint;
+    private int mIconTint = Integer.MIN_VALUE;
     private int mIconSize = Util.dpToPx(getContext(), 24f);
     private Animation mShowAnimation;
     private Animation mHideAnimation;
@@ -134,12 +134,6 @@ public class FloatingActionButton extends AppCompatImageButton {
         mProgressMax = attr.getInt(R.styleable.FloatingActionButton_fab_progress_max, mProgressMax);
         mShowProgressBackground = attr.getBoolean(R.styleable.FloatingActionButton_fab_progress_showBackground, true);
         mIconTint = attr.getColor(R.styleable.FloatingActionButton_fab_icon_tint, Integer.MIN_VALUE);
-        int iconRes = attr.getResourceId(R.styleable.FloatingActionButton_fab_icon, 0);
-        if (iconRes != 0) {
-            mIcon = AppCompatResources.getDrawable(context, iconRes);
-        } else {
-            mIcon = context.getResources().getDrawable(R.drawable.fab_add);
-        }
         if (attr.hasValue(R.styleable.FloatingActionButton_fab_progress)) {
             mProgress = attr.getInt(R.styleable.FloatingActionButton_fab_progress, 0);
             mShouldSetProgress = true;
@@ -834,7 +828,7 @@ public class FloatingActionButton extends AppCompatImageButton {
         }
 
         if (mIconTint > Integer.MIN_VALUE) {
-            icon.setTint(mIconTint);
+            icon.setColorFilter(mIconTint, PorterDuff.Mode.MULTIPLY);
         }
 
         return icon;
